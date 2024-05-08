@@ -54,12 +54,13 @@ with gr.Blocks(theme=gr.themes.Soft()) as demo:
     gr.Markdown("# 💬 QR Code Image Processo ")
     gr.Markdown("## 🚀 Enter a URL and the app will generate a QR code and add it to the certificate image.")
     gr.Markdown("### 💪 Power by [InternLM](https://github.com/InternLM), If you like, please click a little ⭐ . ")
-    image = gr.Image(type="pil")
+    input_image = gr.Image(type="pil")
+    output_image = gr.Image(format="png")
     # 定义 Gradio 界面
     gr.Interface(
         fn=process_image, 
-        inputs=["text",image], 
-        outputs="image")
+        inputs=["text",input_image], 
+        outputs=output_image)
 
 # 启动应用
 demo.launch()
